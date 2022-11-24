@@ -10,14 +10,11 @@ function convertPokemonToLi(pokemon) {
         <li class="pokemon ${pokemon.type}">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
-
             <div class="detail">
                 <ol class="types">
                     ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
                 </ol>
-
-                <img src="${pokemon.photo}"
-                     alt="${pokemon.name}">
+                <img class="poke_img" src="${pokemon.photo}" alt="${pokemon.name}" title="${pokemon.name}">
             </div>
         </li>
     `
@@ -39,9 +36,35 @@ loadMoreButton.addEventListener('click', () => {
     if (qtdRecordsWithNexPage >= maxRecords) {
         const newLimit = maxRecords - offset
         loadPokemonItens(offset, newLimit)
-
-        loadMoreButton.parentElement.removeChild(loadMoreButton)
+        loadMoreButton.classList.add('load_opacity')
+        loadMoreButton.setAttribute('disabled', 'disabled')
     } else {
         loadPokemonItens(offset, limit)
+        loadMoreButton.classList.remove('load_opacity')
+        loadMoreButton.removeAttribute('disabled')
     }
 })
+
+// TENTATIVA FRUSTADA DE IMPLEMENTAR UM MODAL //
+
+// const modal = document.querySelector(".modal")
+// const openModal = document.querySelector(".open_modal")
+// const closeModal = document.querySelector(".close_modal")
+
+// openModal.addEventListener('click', () => {
+//     modal.showModal()
+// });
+  
+// closeModal.addEventListener('click', () => {
+//     modal.close()
+// });
+
+// function pokeModal (pokemon){
+//     return `
+//         <button class="open_modal">More Info</button>
+//         <dialog class="modal">
+//             <h2 class="nome">TESTE</h2>
+//             <button class="close_modal">Close</button>
+//         </dialog>
+//     `
+// }

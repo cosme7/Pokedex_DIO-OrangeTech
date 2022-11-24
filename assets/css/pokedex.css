@@ -1,7 +1,7 @@
 .pokemons {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     list-style: none;
     gap: 1rem;
 }
@@ -11,6 +11,10 @@
     flex-direction: column;
     padding: 1rem;
     border-radius: 1rem;
+    background-image: url('../../pokeball-bg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 110%;
 }
 
 .logo--box{
@@ -57,7 +61,7 @@
     font-size: clamp(1rem, 1vw, 1.2rem);
     font-weight: 700;
     border-radius: 1rem;
-    outline: 2px solid #FFF;
+    outline: 1.5px solid #FFF;
     color: #fff;
     filter: brightness(1.1) contrast(80%);
     text-transform: capitalize;
@@ -165,4 +169,3 @@
 .fairy {
     background-color: #f9aec7;
 }
-

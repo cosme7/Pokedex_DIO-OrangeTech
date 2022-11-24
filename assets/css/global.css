@@ -12,8 +12,8 @@ body {
 }
 
 .content {
-    max-width: 1024px;
-    height: fit-content;
+    max-width: 1336px;
+    height: auto;
     padding: 1rem;
     margin: 0 auto;
     display: flex;

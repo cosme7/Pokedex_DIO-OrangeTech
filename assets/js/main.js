@@ -5,6 +5,7 @@ const maxRecords = 151
 const limit = 10
 let offset = 0;
 
+//* Criando uma lista de cada Pokémon, e mapeando às infos de cada um deles.
 function convertPokemonToLi(pokemon) {
     return `
         <li class="pokemon ${pokemon.type}">
@@ -20,6 +21,7 @@ function convertPokemonToLi(pokemon) {
     `
 }
 
+//* Carrega às infos dos Pokes na tela, se baseando no offset & limit 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map(convertPokemonToLi).join('')
@@ -29,6 +31,8 @@ function loadPokemonItens(offset, limit) {
 
 loadPokemonItens(offset, limit)
 
+//* Event criado com intuito de carregar mais Pokemons limitando o carregamento
+//* Além disso desabilita o button ao chegar no limit "151" 
 loadMoreButton.addEventListener('click', () => {
     offset += limit
     const qtdRecordsWithNexPage = offset + limit
@@ -68,3 +72,4 @@ loadMoreButton.addEventListener('click', () => {
 //         </dialog>
 //     `
 // }
+
